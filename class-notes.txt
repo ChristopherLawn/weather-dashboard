@@ -1,0 +1,28 @@
+MODULE 6 CHALLENGE - ACCUWEATHER API!
+Use the fetch API to send requests to a server-side API
+
+Receive and parse data in the JSON format
+
+Use returned data to dynamically generate HTML
+
+Handle response codes and metadata, including headers, status, and URL
+
+
+
+
+weather app need:
+2 types of API
+current weather data (city name/state code)
+	"uvi index" under current
+one call API
+	index 0 of daily.  array of "1-5" (exclude current weather.  index 1/ second object = 5 days starting tomorrow. skip index 0.  go to index one.  do indexes 1-5)
+
+5-day weather data
+
+need units 'imperial' to convert celsius to farenheit (include this inside URL)
+"units=imperial"
+
+2nd api dependent on first api (location dependent on latitude/longitude)
+save your most recent searches to localStorage
+'append' = top to bottom.  add item to bottom of list.
+'prepend' = bottom to top.  adds item to top of list.

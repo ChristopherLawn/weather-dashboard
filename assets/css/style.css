@@ -1,6 +1,6 @@
 :root {
-    --primary: #ccdad1;
-    --secondary: #9caea9;
+    --primary: #0c54da;
+    --secondary: #ffffff;
     --tertiary: #788585;
     --light-dark: #6f6866;
     --dark: #38302e;
@@ -16,7 +16,7 @@
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans", sans-serif;
-    color: var(--dark);
+    color: var(--secondary);
     line-height: 1.5;
     font-size: 16px;
   }
@@ -29,7 +29,7 @@
   h6 {
     font-weight: 700;
     margin: 0;
-    color: var(--dark);
+    color: var(--secondary);
     line-height: 1.25;
   }
   
@@ -40,6 +40,7 @@
   
   p {
     font-size: 1.2rem;
+    text-align: center;
   }
   
    .btn {
@@ -50,7 +51,7 @@
     display: block;
     margin: 5px 0;
     border-radius: var(--border-radius);
-    color: var(--primary);
+    color: var(--secondary);
     border: none;
     outline: none;
     background-color: var(--light-dark);
@@ -71,7 +72,7 @@
   
   .btn-back {
     border-radius: var(--border-radius);
-    color: var(--primary);
+    color: var(--secondary);
     border: none;
     outline: none;
     background-color: var(--light-dark);
@@ -93,9 +94,10 @@
   }
   
   .hero {
-    padding: 3% 4%;
+    padding: 2% 3%;
     background-color: var(--dark);
-    color: var(--primary);
+    color: var(--secondary);
+    text-align: center;
   }
   
   .hero p {
@@ -105,11 +107,12 @@
   .app-title {
     font-size: 3rem;
     background-color: var(--primary);
-    color: var(--dark);
+    color: var(--secondary);
     padding: 0 10px;
     display: inline-block;
     border-radius: var(--border-radius);
-    box-shadow: 6px 5px var(--light-dark);
+    /* box-shadow: 6px 5px var(--light-dark); */
+    text-align: center;
   }
   
   .list-group {
@@ -122,7 +125,7 @@
     padding: 1.5%;
     border-radius: var(--border-radius);
     background-color: var(--light-dark);
-    color: var(--primary);
+    color: var(--secondary);
     text-decoration: none;
   }
   
@@ -153,7 +156,7 @@
   }
   
   .card-header {
-    color: var(--primary);
+    color: var(--secondary);
     background-color: var(--dark);
     padding: 2.5%;
     border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
