@@ -132,6 +132,22 @@
   .list-item:hover {
     background-color: var(--dark);
   }
+
+  #current-weather-container h1 {
+    color: var(--primary);
+  }
+
+  #current-weather-container {
+    border: solid 1px #38302e;
+    background-color:var(--secondary);
+    color: var(--primary);
+    font-weight: bold;
+    text-align: left;
+  }
+
+  #current-weather-container p {
+    text-align: left;
+  }
   
   .status-icon {
     padding: 2px 5px;
@@ -146,6 +162,11 @@
   
   .icon-success {
     color: rgb(29, 153, 255);
+  }
+
+  .uv-low {
+    background-color: green;
+    color: white;
   }
   
   /* CARDS */
