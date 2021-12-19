@@ -15,7 +15,7 @@ A simple and easy-to-use weather app!  User can search for any city to see infor
 ## Website
 https://christopherlawn.github.io/weather-dashboard/
 
-## Screenshot of JavaScript Code Quiz homepage
+## Screenshot of International Weather Dashboard homepage
 
 ## Contribution
 Made with ❤️ by Chris Lawn
