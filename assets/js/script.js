@@ -1,5 +1,7 @@
 var searchCity = document.querySelector("#user-search");
 var clearSearch = document.querySelector("#clear-history");
+
+// Clears user search history
 var clearHistory = function() {
     localStorage.clear();
     var hideCityContainer = document.querySelector("#city-list-container");
@@ -15,6 +17,7 @@ var clearHistory = function() {
     document.location.reload(true);
 }
 
+// Checks localStorage for previous search history items and repopulates search list
 var citySearchEl = document.querySelector("#cityname");
 var citySearchContainerEl = document.querySelector("#city-list");
 var citySearchTerm = document.querySelector("#city-search-term");
@@ -38,7 +41,7 @@ if (localStorage.getItem("city-list")) {
     citySearchArray = [];
 };
 
-
+// Checks to see if user entered a valid city name
 var citySubmitHandler = function(event) {
     // prevent page from refreshing
     event.preventDefault();
@@ -57,7 +60,7 @@ var citySubmitHandler = function(event) {
     }
 };
 
-
+// Puts out the API call to check the current and upcoming weather conditions for the city the user entered
 var findCity = function(cityInput) {
     // format the github api url
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q="+cityInput+",,&units=imperial&appid=e843da64771fc78ef6dbf9ad46b3939d";
@@ -92,6 +95,7 @@ var findCity = function(cityInput) {
     });
 };
 
+// Creates a button for each city the user searches. Pulls up the conditions for that city.
 var displayCities = function(cityNameButton) {
             let inArray = false;
             for(let i = 0; i < citySearchArray.length; i++){
@@ -114,7 +118,7 @@ var displayCities = function(cityNameButton) {
             }
 };
 
-
+// Shows the current weather and upcoming 5-day forecast for the city entered by the user
 var showCityWeather = function(data, weatherData) {
 var currentCityWeather = document.querySelector("#current-weather-container");
 var unhideClearHistory = document.querySelector("#clear-history");
@@ -192,6 +196,8 @@ var showFiveDayFive = function(data, weatherData) {
         <p>Humidity: ${(weatherData.daily[4].humidity)}%</p>` 
     }
 
+// 'Search' button function
 searchCity.addEventListener("submit", citySubmitHandler);
 
+// 'Clear Search History' button function
 clearSearch.addEventListener("click", clearHistory);
