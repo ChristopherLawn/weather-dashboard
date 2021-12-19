@@ -14,8 +14,7 @@
 <body class="flex-column min-100-vh">
   <header class="hero">
     <h1 class="app-title"><i class="fas fa-cloud-sun"></i> International Weather Dashboard</h1>
-    <p>Search for a city to see its current weather conditions and a 5-day forecast!
-    </p>
+    <p class="site-description">Search for a city to see its current weather conditions and the upcoming 5-day forecast!</p>
   </header>
 
 
@@ -30,18 +29,52 @@
         </Form>
       </div>
 
-      <div id="city-list-container" class="city-list-container col-12 col-lg-3 col-md-3">
+      <div id="city-list-container" class="city-list-container col-12 col-lg-3 col-md-3 col-sm-12">
+            <button type="submit" class="btn" id="clear-history">Clear Search History</button>
             <h2 class="subtitle">Search History: <span id="city-search-term"></span></h2>
             <ul id="city-list" class="list-group"></ul>
       </div>
     </div>
 
-    <div id="current-weather-container" class ="col-lg-9 col-md-9 col-sm-12"></div>
+    <div id="current-weather-container" class ="col-12 col-lg-9 col-md-9 col-sm-12"></div>
 
-    <div id="five-day-container" class="col-12 col-md-9"></div>
+    <div id="five-day-container">
+      <h2 class="five-day-title">5-Day Forecast:</h2>
+
+      <div class="card-deck flex-row">
+
+        <div class="five-card col-xl-2 col-lg-2 col-md-12 col-sm-12 flex-column justify-space-between justify-space-around">
+          <div id="five-day-one" class="five-card-body">
+          </div>
+        </div>
+
+        <div class="five-card col-xl-2 col-lg-2 col-md-12 col-sm-12 flex-column justify-space-between justify-space-around">
+          <div id="five-day-two" class="five-card-body">
+          </div>
+        </div>
+
+        <div class="five-card col-xl-2 col-lg-2 col-md-12 col-sm-12 flex-column justify-space-between justify-space-around">
+          <div id="five-day-three" class="five-card-body">
+          </div>
+        </div>
+
+        <div class="five-card col-xl-2 col-lg-2 col-md-12 col-sm-12 flex-column justify-space-between justify-space-around">
+          <div id="five-day-four" class="five-card-body">
+          </div>
+        </div>
+
+        <div class="five-card col-xl-2 col-lg-2 col-md-12 col-sm-12 flex-column justify-space-between justify-space-around">
+          <div id="five-day-five" class="five-card-body">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
 
   </main>
-  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./assets/js/script.js"></script>
 </body>
 

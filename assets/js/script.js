@@ -1,4 +1,7 @@
 var searchCity = document.querySelector("#user-search");
+// var clearHistory = document.querySelector("#clear-history");
+// clearHistory.addEventListener("submit", localStorage.clear());
+
 var citySearchEl = document.querySelector("#cityname");
 var citySearchContainerEl = document.querySelector("#city-list");
 var citySearchTerm = document.querySelector("#city-search-term");
@@ -55,6 +58,11 @@ var findCity = function(cityInput) {
                 console.log(additionaldata);
                 displayCities(data.name);
                 showCityWeather(data, additionaldata);
+                showFiveDayOne(data, additionaldata);
+                showFiveDayTwo(data, additionaldata);
+                showFiveDayThree(data, additionaldata);
+                showFiveDayFour(data, additionaldata);
+                showFiveDayFive(data, additionaldata);
                 })};
             });
             });
@@ -94,12 +102,64 @@ var displayCities = function(cityNameButton) {
 var showCityWeather = function(data, weatherData) {
 var currentCityWeather = document.querySelector("#current-weather-container");
 currentCityWeather.innerHTML = `<h1>${data.name}</h1>
+    <h3>${(moment().format('MMM Do YYYY'))}</h3>
+    <img src="http://openweathermap.org/img/wn/${(weatherData.current.weather[0].icon)}@2x.png"></img>
     <p>Temp: ${(weatherData.current.temp)}°F</p>
     <p>Humidity: ${(weatherData.current.humidity)}%</p>
     <p>Wind Speed: ${(weatherData.current.wind_speed)} MPH</p>
-    <p>UVI Index: ${(weatherData.current.uvi)}</p>` 
+    <p>UVI Index: ${(weatherData.current.uvi)}</p>`
+    console.log(weatherData.current.uvi); 
 } 
 
+var showFiveDayOne = function(data, weatherData) {
+    var fiveDayOne = document.querySelector("#five-day-one");
+    fiveDayOne.innerHTML =
+        `<h2>${(moment().add(1,'days').format('MMM Do YYYY'))}</h2>
+        <img src="http://openweathermap.org/img/wn/${(weatherData.daily[0].weather[0].icon)}@2x.png"></img>
+        <p>Temp: ${(weatherData.daily[0].temp.day)}°F</p>
+        <p>Wind Speed: ${(weatherData.daily[0].wind_speed)} MPH</p>
+        <p>Humidity: ${(weatherData.daily[0].humidity)}%</p>` 
+    }
+    
+var showFiveDayTwo = function(data, weatherData) {
+    var fiveDayTwo = document.querySelector("#five-day-two");
+    fiveDayTwo.innerHTML =
+        `<h2>${(moment().add(2,'days').format('MMM Do YYYY'))}</h2>
+        <img src="http://openweathermap.org/img/wn/${(weatherData.daily[1].weather[0].icon)}@2x.png"></img>
+        <p>Temp: ${(weatherData.daily[1].temp.day)}°F</p>
+        <p>Wind Speed: ${(weatherData.daily[1].wind_speed)} MPH</p>
+        <p>Humidity: ${(weatherData.daily[1].humidity)}%</p>` 
+    }
+
+var showFiveDayThree = function(data, weatherData) {
+    var fiveDayThree = document.querySelector("#five-day-three");
+    fiveDayThree.innerHTML =
+        `<h2>${(moment().add(3,'days').format('MMM Do YYYY'))}</h2>
+        <img src="http://openweathermap.org/img/wn/${(weatherData.daily[2].weather[0].icon)}@2x.png"></img>
+        <p>Temp: ${(weatherData.daily[2].temp.day)}°F</p>
+        <p>Wind Speed: ${(weatherData.daily[2].wind_speed)} MPH</p>
+        <p>Humidity: ${(weatherData.daily[2].humidity)}%</p>` 
+    }
+
+var showFiveDayFour = function(data, weatherData) {
+    var fiveDayFour = document.querySelector("#five-day-four");
+    fiveDayFour.innerHTML =
+        `<h2>${(moment().add(4,'days').format('MMM Do YYYY'))}</h2>
+        <img src="http://openweathermap.org/img/wn/${(weatherData.daily[3].weather[0].icon)}@2x.png"></img>
+        <p>Temp: ${(weatherData.daily[3].temp.day)}°F</p>
+        <p>Wind Speed: ${(weatherData.daily[3].wind_speed)} MPH</p>
+        <p>Humidity: ${(weatherData.daily[3].humidity)}%</p>` 
+    }
+
+var showFiveDayFive = function(data, weatherData) {
+    var fiveDayFive = document.querySelector("#five-day-five");
+    fiveDayFive.innerHTML =
+        `<h2>${(moment().add(5,'days').format('MMM Do YYYY'))}</h2>
+        <img src="http://openweathermap.org/img/wn/${(weatherData.daily[4].weather[0].icon)}@2x.png"></img>
+        <p>Temp: ${(weatherData.daily[4].temp.day)}°F</p>
+        <p>Wind Speed: ${(weatherData.daily[4].wind_speed)} MPH</p>
+        <p>Humidity: ${(weatherData.daily[4].humidity)}%</p>` 
+    }
 
 searchCity.addEventListener("submit", citySubmitHandler);
 
