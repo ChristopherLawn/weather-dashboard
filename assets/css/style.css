@@ -176,6 +176,16 @@
     color: white;
   }
 
+  .uv-moderate {
+    background-color: yellow;
+    color: var(--dark);
+  }
+
+  .uv-high {
+    background-color: red;
+    color: white;
+  }
+
   #five-day-container {
     display: inline-block;
   }
@@ -649,3 +659,7 @@
       text-align: left;
     }
   }  
+
+  .hide {
+    display: none;
+  }

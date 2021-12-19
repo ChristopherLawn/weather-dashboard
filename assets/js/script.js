@@ -1,12 +1,29 @@
 var searchCity = document.querySelector("#user-search");
-// var clearHistory = document.querySelector("#clear-history");
-// clearHistory.addEventListener("submit", localStorage.clear());
+var clearSearch = document.querySelector("#clear-history");
+var clearHistory = function() {
+    localStorage.clear();
+    var hideCityContainer = document.querySelector("#city-list-container");
+        hideCityContainer.classList.add("hide");
+    var hideCityContainer = document.querySelector("#city-list-container");
+        hideCityContainer.classList.add("hide");
+    var hideCurrent = document.getElementById("current-weather-container");
+        hideCurrent.classList.add("hide");
+    var hideFiveTitle = document.getElementById("five-day-title");
+        hideFiveTitle.classList.add("hide");
+    var hideFiveCards = document.getElementById("five-day-cards");
+        hideFiveCards.classList.add("hide");
+    document.location.reload(true);
+}
 
 var citySearchEl = document.querySelector("#cityname");
 var citySearchContainerEl = document.querySelector("#city-list");
 var citySearchTerm = document.querySelector("#city-search-term");
 var citySearchArray;
 if (localStorage.getItem("city-list")) {
+    var unhideClearHistory = document.querySelector("#clear-history");
+        unhideClearHistory.classList.remove("hide");
+    var unhideSearchHistory = document.getElementById("search-history-title")
+        unhideSearchHistory.classList.remove("hide");
     citySearchArray = JSON.parse(localStorage.getItem("city-list"));
     citySearchArray.forEach(element => {
         var cityEl = document.createElement("li");
@@ -75,7 +92,6 @@ var findCity = function(cityInput) {
     });
 };
 
-
 var displayCities = function(cityNameButton) {
             let inArray = false;
             for(let i = 0; i < citySearchArray.length; i++){
@@ -101,17 +117,29 @@ var displayCities = function(cityNameButton) {
 
 var showCityWeather = function(data, weatherData) {
 var currentCityWeather = document.querySelector("#current-weather-container");
+var unhideClearHistory = document.querySelector("#clear-history");
+    unhideClearHistory.classList.remove("hide");
+var unhideCityContainer = document.querySelector("#city-list-container");
+    unhideCityContainer.classList.remove("hide");
+var unhideSearchHistory = document.getElementById("search-history-title")
+    unhideSearchHistory.classList.remove("hide");
+var unhideCurrent = document.getElementById("current-weather-container")
+    unhideCurrent.classList.remove("hide");
+var unhideFiveTitle = document.getElementById("five-day-title")
+    unhideFiveTitle.classList.remove("hide");
+var unhideFiveCards = document.getElementById("five-day-cards")
+    unhideFiveCards.classList.remove("hide");
+var uviColor = console.log(weatherData.current.uvi);
+if ((weatherData.current.uvi) < 6) {uviColor="uv-moderate"};
+if ((weatherData.current.uvi) < 3) {uviColor="uv-low"};
+if ((weatherData.current.uvi) > 6) {uviColor="uv-high"};
 currentCityWeather.innerHTML = `<h1>${data.name}</h1>
     <h3>${(moment().format('MMM Do YYYY'))}</h3>
     <img src="http://openweathermap.org/img/wn/${(weatherData.current.weather[0].icon)}@2x.png"></img>
     <p>Temp: ${(weatherData.current.temp)}°F</p>
     <p>Humidity: ${(weatherData.current.humidity)}%</p>
     <p>Wind Speed: ${(weatherData.current.wind_speed)} MPH</p>
-    <p>UVI Index: ${(weatherData.current.uvi)}</p>`
-    var uviColor = console.log(weatherData.current.uvi);
-    return(uviColor);
-    // if uviColor = less than ______, add class_______
-     
+    <p class="${uviColor}">UVI Index: ${(weatherData.current.uvi)}</p>`     
 } 
 
 var showFiveDayOne = function(data, weatherData) {
@@ -166,103 +194,4 @@ var showFiveDayFive = function(data, weatherData) {
 
 searchCity.addEventListener("submit", citySubmitHandler);
 
-
-
-// var citySearchArrayJson = JSON.parse(citySearchArray);
-// citySearchArray = ["boston", "miami", "portland"]
-
-// localStorage.setItem("city-list", JSON.stringify(citySearchArray));
-
-// function removeDuplicates(citySearchArrayParameter) {
-//     let unique = [];
-//     citySearchArrayParameter.forEach(element => {
-//         if (!unique.includes(element)) {
-//             unique.push(element)
-//         }
-//     })
-//     return unique;
-// }
-// console.log(removeDuplicates(citySearchArray));
-
-// var apiURL = "https://api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={API key}"
-
-//     // create user search history array
-//     // if (cities.length === 0) {
-//     //     citySearchContainerEl.textContent = "No cities found.";
-//     //     return;
-//     // }
-
-//     // citySearchTerm.textContent = searchTerm;
-
-//     // loop over repos
-//     // for (var i = 0; i < cities.length; i++) {
-//     //     // format repo name
-//     //     var cityName = cities[i];
-
-//         // var cityName = citySearchEl.value.trim();
-//         document.body.appendChild(citySearchContainerEl)
-
-        // city search array
-        // var cityCounter = 0;
-        // for (i = 0; i < citySearchArray.length; i++) {
-        //     if (citySearchArray[i] === cityNameButton) {
-        //         cityCounter++
-        //     }
-        // };
-        // if (cityCounter === 0) {
-
-// }
-        
-// create button for each city
-
-        
-
-//         // // create a span element to hold repository name
-//         // var titleEl = document.createElement("span");
-//         // titleEl.textContent = repoName;
-
-//         // append to container
-//         // cityEl.appendChild("#city-list-container");
-
-//         // // create a status element
-//         // var statusEl = document.createElement("span");
-//         // statusEl.classList = "flex-row align-center";
-
-//         // // check if current repo has issues or not
-//         // if (repos[i].open_issues_count > 0) {
-//         //     statusEl.innerHTML = "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-//         // } else {
-//         //     statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-//         // }
-        
-//         // // append to container
-//         // repoEl.appendChild(statusEl);
-
-//         // append container to the DOM
-        
-//     // };
-
-// var cityEl = document.createElement("li");
-// cityEl.classList = "btn btn:hover col-lg-3 col-md-3 col-sm-12";
-// cityEl.textContent = cityNameButton;
-// cityEl.addEventListener("click", function(event) {
-// findCity(event.target.textContent)
-// });
-// citySearchContainerEl.appendChild(cityEl);
-
-// var populateCityList = function() {
-//     // var cityList = JSON.parse(localStorage.getItem("city-list"));
-//     var cityList = localStorage.getItem("city-list");
-//     for (i = 0; i < cityList.length; i++);
-//     if (cityList.length >= 0) {
-//         cityList.forEach((value) => {
-//             var cityEl = document.createElement("li");
-//             cityEl.classList = "btn btn:hover col-lg-3 col-md-3 col-sm-12";
-//             cityEl.textContent = cityNameButton;
-//             cityEl.addEventListener("click", function(event) {
-//             findCity(event.target.textContent)
-//             });
-//             citySearchContainerEl.appendChild(cityEl);
-//         })
-//     }
-// ;}
+clearSearch.addEventListener("click", clearHistory);
