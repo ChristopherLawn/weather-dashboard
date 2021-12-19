@@ -108,7 +108,10 @@ currentCityWeather.innerHTML = `<h1>${data.name}</h1>
     <p>Humidity: ${(weatherData.current.humidity)}%</p>
     <p>Wind Speed: ${(weatherData.current.wind_speed)} MPH</p>
     <p>UVI Index: ${(weatherData.current.uvi)}</p>`
-    console.log(weatherData.current.uvi); 
+    var uviColor = console.log(weatherData.current.uvi);
+    return(uviColor);
+    // if uviColor = less than ______, add class_______
+     
 } 
 
 var showFiveDayOne = function(data, weatherData) {
